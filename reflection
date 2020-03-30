@@ -1,0 +1,17 @@
+1、反射机制
+    1、反射机制有什么作用？
+        通过java语言中的反射机制可以操作字节码文件，代码片段(class文件)
+
+    2、反射机制的相关类在哪个包下？
+        java.lang.reflect*;
+
+    3、反射机制相关的重要的类有哪些？
+        java.lang.Class
+        java.lang.reflect.Method
+        java.lang.reflect.Constructor
+        java.lang.reflect.Field
+
+2、创建类的三种方式
+    1、Class.forName();
+    2、对象.getClass();
+    3、任何类型.class;
