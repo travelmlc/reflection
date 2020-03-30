@@ -15,3 +15,41 @@
     1、Class.forName();
     2、对象.getClass();
     3、任何类型.class;
+
+3、java.util包下提供了一个资源绑定器ResourceBundle(静态类)，便于获取属性配置文件中的内容
+   使用这种方式，配置文件xxx.properties必须放到类路径下。
+   资源绑定器，只能绑定xxx.properties文件，并且这个文件必须在类路径下，文件扩展名也必须是properties
+   并且在写路径时，路径后面的扩展名不能写
+
+   ResourceBundle bundle = ResourceBundle.getBundle("com/bjpowernode/bean/db");
+   String string = bundle.getString("jdbc.user");
+
+4、JDK中自带的类加载器：
+    1、什么是类加载器？
+        专门负责加载类的命令/工具
+        ClassLoader
+
+    2、JDK中自带了3个类加载器
+        启动类加载器
+        扩展类加载器
+        应用类加载器
+
+    3、假设有这样一段代码：
+        String s = "abc";
+
+        代码在开始执行之前，会将所有需要类全部加载到JVM中，通过类加载器加载，看到以上代码类加载器会找String.class文件，
+        找到就加载，那么是怎么样进行类加载的呢？
+        首先通过“启动类加载器”加载。
+        注意：启动类加载器专门加载：jre\lib\rt.jar，这里面都是JDK最核心的类库
+
+        如果“启动类加载器”加载不到的时候，会通过“扩展类加载器”加载。
+        注意：扩展类加载器专门加载：jre\lib\ext\*.jar
+
+        如果“扩展类加载器”加载不到的时候，会通过“应用类加载器”加载。
+        注意：应用类加载器专门加载：classpath中的类
+
+    4、java中为了保证类加载的安全，使用了双亲委派机制
+        优先从启动类加载器中加载，这个称谓“父”，“父”无法加载到，再从扩展类加载器中加载，这个称谓“母”，
+        双亲委派。如果都加载不到，才考虑从应用类加载器中加载，直到加载到为止。
+
+
