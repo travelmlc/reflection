@@ -21,6 +21,7 @@ public class Reflection07 {
         //ResourceBundle bundle = ResourceBundle.getBundle("login");
         ResourceBundle bundle = ResourceBundle.getBundle("com/bjpowernode/bean/db");
 
+        //通过key获取value
         String string = bundle.getString("jdbc.user");
         System.out.println(string);
     }
