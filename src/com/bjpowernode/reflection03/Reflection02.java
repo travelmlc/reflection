@@ -11,6 +11,8 @@ import java.lang.reflect.Field;
  *
  * @Date:2020/3/30 22:10
  * @Author:mlc17607163664@163.com
+ *
+ * 重点：通过反射机制访问属性对象
  */
 public class Reflection02 {
 

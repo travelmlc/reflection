@@ -33,13 +33,21 @@ public class Reflection04 {
 
             //参数列表
             Class<?>[] parameterTypes = method.getParameterTypes();
-            for (int i = 0; i < parameterTypes.length; i++) {
+            /*for (int i = 0; i < parameterTypes.length; i++) {
                 Class<?> type = parameterTypes[i];
                 if(i == parameterTypes.length-1){
                     sb.append(type.getSimpleName());
                 }else {
                     sb.append(type.getSimpleName() + ",");
                 }
+            }*/
+            for (Class<?> type : parameterTypes) {
+                sb.append(type.getSimpleName());
+            }
+
+            //有参数就删除最后一个位置
+            if(parameterTypes.length > 0){
+                sb.deleteCharAt(sb.length() - 1);
             }
             sb.append("){}\n");
         }

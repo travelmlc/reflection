@@ -26,6 +26,10 @@ public class UserService {
         return false;
     }
 
+    public boolean login(){
+        return true;
+    }
+
     /**
      * 退出系统
      */
